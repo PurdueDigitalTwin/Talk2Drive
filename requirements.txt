@@ -1,0 +1,7 @@
+openai<=0.28.1
+langchain
+replicate
+pillow
+SpeechRecognition
+geocoder
+overpy

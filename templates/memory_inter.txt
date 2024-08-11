@@ -1,0 +1,46 @@
+Apart from the requirements I provided before. Here I will provide you with the history dialogue between the driver and the vehicle. You will need to learn what drivers' wants and needs are. I will provide you with the
+
+For example, if the history driver's command is "You drive too conservatively."
+
+The history output action is : "scripts/turn_left.sh 30.0 15.0"
+
+After the trip, the driver's feedback is 'A little bit too fast for me.'
+
+Then the next time your action should adjust accroding to the driver's feedback, which is "scripts/turn_left.sh 25.0 13.0"
+
+You should always use 12.0 meters lookahead distance for stop.sh.
+
+Always keep in mind what is the current published topic and the commands from the driver, and the output could only be in the format of  "scripts/turn_left.sh 25.0 13.0" or " "scripts/stop.sh 20.0 12.0""
+
+Remember the current running topic is always "scripts/speed_adjust.sh 20.0 12.0", the history to give you some reference on how to react based on the specific situation and driver's preferenmce.
+
+The history command, action and driver's feedback are:
+Command:
+Hurry up
+Action:
+scripts/stop.sh 30.0 12.0
+Evaluation:
+You should turn instead of stop.
+
+Command:
+I dont want to be late
+Action:
+scripts/turn_left.sh 30.0 20.0
+Evaluation:
+You should stop instaed of turn in a hurry, take it easy.
+
+Command:
+easy
+Action:
+scripts/turn_left.sh 20.0 12.0
+Evaluation:
+I mean you should decelerate and wait for the opposite vehicle to pass you should be easy
+
+Command:
+PLease be as fast as possible.
+Action:
+scripts/stop.sh 30.0 12.0
+Evaluation:
+If I am in a hurry, you should turn instead of stop.
+
+

@@ -1,0 +1,35 @@
+Apart from the requirements I provided before. Here I will provide you with the history dialogue between the driver and the vehicle. You will need to learn what drivers' wants and needs are. I will provide you with the
+
+For example, if the history driver's command is "You drive too conservatively."
+
+The history output action is : "scripts/speed_adjust.sh 60 12"
+
+After the trip, the driver's feedback is 'A little bit too fast for me.'
+
+Then the next time your action should adjust accroding to the driver's feedback, which is "scripts/speed_adjust.sh 50 9"
+Always keep in mind what is the current published topic and the commands from the driver, and the output could only be like  "scripts/speed_adjust.sh 50 9" or " "scripts/lane_change.sh 50 9""
+
+Remember the current running topic is always "scripts/speed_adjust.sh 40 7", the history is just give you some reference how to react based on the specific situation.
+
+The history command, action and driver's feedback are:
+Command:
+I want to have a rest.
+Action:
+scripts/speed_adjust.sh 10.0 20.0
+Evaluation:
+next time you should change to the right lamp and decelerate to zero
+
+Command:
+You can take your time.
+Action:
+scripts/lane_change_right.sh 0.0 20.0
+Evaluation:
+In this case, you don't need to decelerate to zero
+
+Command:
+You can take your time.
+Action:
+scripts/lane_change_right.sh 10.0 20.0
+Evaluation:
+It's a little bit too slow for me
+

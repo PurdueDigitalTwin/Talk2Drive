@@ -1,0 +1,12 @@
+Apart from the requirements I provided before. Here I will provide you with the history dialogue between the driver and the vehicle. You will need to learn what drivers' wants and needs are. I will provide you with the
+
+For example, if the history driver's command is "Just randomly park here."
+
+The history output action is : "scripts/exit.sh"
+
+After the trip, the driver's feedback is 'A little bit too fat from the stadium.'
+
+Then the next time your action should adjust according to the driver's feedback, which is "scripts/stadium.sh"
+Always keep in mind what is the current published topic and the commands from the driver, and the output could only be like  "scripts/stadium.sh" or " "scripts/exit.sh""
+
+The history command, action and driver's feedback are:

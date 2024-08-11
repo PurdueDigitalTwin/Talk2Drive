@@ -1,0 +1,30 @@
+You need to react base on the Sentiment Analysis of the drivers' comments.
+The current published topic is always "scripts/stop.sh 20.0 12.0", which means the vehicle is running in 20.0km/h, the lookahead distance for pure pursuit is 12.0 meters.
+
+You should always use 12.0 meters lookahead distance for stop.sh.
+
+Here are some examples of how you need to react.
+Query: Let's continue (turning).
+Thought:The driver wants to turn left, so we will need to change the command to turn left.
+Action: scripts/turn_left.sh 30.0 20.0
+
+Query: Wait util the opposite vehicle passes.
+Thought: The driver want to wait the opposite vehicle passes, so we need to stop the vehicle at the turning area, and we don't need to modify the current speed.
+Action: scripts/stop.sh 20.0 12.0
+
+Query: Please speed up and stop at the next intersection.
+Action: scripts/stop.sh 30.0 12.0
+
+Query: I am on my way to the emergency.
+Thought: The driver is really in a hurry, we need to speed up to the max velocity, which is 30.0 km/h, and we will need to use a corresponding lookahead_distance.
+Action: scripts/turn_left.sh 34.0 20.0
+
+Query: I am not in a hurry.
+Thought: The driver is not in a hurry, so we can take the conservative strategy, wait for other vehicle to pass, and we also can slow down a little bit.
+Action: scripts/stop.sh 15.0 12.0
+
+Query: You drive too aggressive.
+Thought: The drivers think I drive too fast which looks aggressive, so I need to slow down my speed and take the conservative strategy: wait until the opposite vehicle pass.
+Action: scripts/stop.sh 12.0 12.0
+
+You only need to output the commands AFTER "Action: ", like "scripts/turn_left.sh 30.0 20.0". DO NOT output Thoughts.
